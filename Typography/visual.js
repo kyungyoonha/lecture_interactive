@@ -4,15 +4,15 @@ import { Particle } from "./Particle.js";
 export class Visual {
     constructor() {
         this.text = new Text();
-
+        // 구성될 입자 모양
+        // 세모로 바꾸면 세모모양으로 쪼개진다.
         this.texture = PIXI.Texture.from("particle.png");
-
         this.particles = [];
 
         this.mouse = {
             x: 0,
             y: 0,
-            radius: 100,
+            radius: 50,
         };
         document.addEventListener("pointermove", this.onMove.bind(this), false);
     }
