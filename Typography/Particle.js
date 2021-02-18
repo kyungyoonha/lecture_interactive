@@ -25,13 +25,15 @@ export class Particle {
     }
 
     draw() {
+        // 처음 애니메이션 실행될때 rgb가 0으로 됐다가 천천히 원래 색으로 돌아온다.
+        // 매 프레임 마다 조금씩 색이 돌아옴 - color_speed
         this.rgb += (this.savedRgb - this.rgb) * COLOR_SPEED;
 
         this.x += (this.savedX - this.x) * MOVE_SPEED;
         this.y += (this.savedY - this.y) * MOVE_SPEED;
 
-        this.vx *= FRICTION;
-        this.vy *= FRICTION;
+        this.vx *= FRICTION; // 실제 움직인 거리에서 매 프레임마다 0.98씩 곱해짐
+        this.vy *= FRICTION; // -> 최대로 퍼졌을때 * 0.98 이므로 조금씩 원래 위치로 돌아온다
 
         this.x += this.vx;
         this.y += this.vy;
