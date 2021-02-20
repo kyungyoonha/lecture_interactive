@@ -1,3 +1,23 @@
+## 목차
+
+### Sheep
+|![Sheep](https://user-images.githubusercontent.com/29701385/108590985-b186c980-73a9-11eb-9ceb-9a3df394a470.gif)|
+|---|
+
+### Typograpy
+|![typograpy](https://user-images.githubusercontent.com/29701385/108590901-40471680-73a9-11eb-9c39-4fd47255c1d4.gif)|
+|---|
+
+### RotatingShape
+|polygon.js| polygon2.js| polygon3.js|
+|---|---|---|
+|![polygon1](https://user-images.githubusercontent.com/29701385/108588961-4df79e80-739f-11eb-992c-ffbe8153baf1.gif)|![polygon2](https://user-images.githubusercontent.com/29701385/108589138-543a4a80-73a0-11eb-8f5d-f8a585bfa95e.gif)|![polygon3](https://user-images.githubusercontent.com/29701385/108590536-6a97d480-73a7-11eb-8de1-a56e94cd7309.gif)|
+
+### Bouncing Ball
+|![bouncing](https://user-images.githubusercontent.com/29701385/108593136-54911080-73b5-11eb-9694-ac4963f1fd3e.gif)|
+|---|
+
+
 ## 실행
 - 서버로 실행 시켜야 CORS에러 안생김
 - 에러가 어디서 발생하는지 쉽게 알 수 있다.
