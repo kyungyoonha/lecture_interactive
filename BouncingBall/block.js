@@ -5,10 +5,12 @@ export class Block {
         this.x = x;
         this.y = y;
         this.maxX = width + x;
-        this.maxY = height + y;
+        this.maxY = width + y;
     }
 
     draw(ctx) {
+        // 그림자 그리기
+        // 좌표값만 알고 있으면 그리기 쉽다.
         const xGap = 80;
         const yGap = 60;
 

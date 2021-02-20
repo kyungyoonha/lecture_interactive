@@ -16,7 +16,7 @@ class App {
         window.addEventListener("resize", this.resize.bind(this), false);
         this.resize();
 
-        this.ball = new Ball(this.stageWidth, this.stageHeight, 60, 30);
+        this.ball = new Ball(this.stageWidth, this.stageHeight, 60, 15);
         this.block = new Block(700, 30, 300, 450);
 
         window.requestAnimationFrame(this.animate.bind(this));
@@ -29,6 +29,8 @@ class App {
         this.stageWidth = document.body.clientWidth;
         this.stageHeight = document.body.clientHeight;
 
+        // 크기를 2배로 지정해주는 이유
+        // => 레티나 디스플레이에서도 잘 보이기 위함.
         this.canvas.width = this.stageWidth * 2;
         this.canvas.height = this.stageHeight * 2;
         this.ctx.scale(2, 2);
@@ -39,6 +41,7 @@ class App {
         // 애니메이션은 계속 프레임을 생성하므로 이전 프레임은 지워줘야 한다.
         // 지워주지 않으면 공이 움직였던 모양이 화면에 그대로 남는다.
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+        // 애니메이션은 매번 생성되므로 block도 다시 그려줘야한다.
         this.block.draw(this.ctx);
         this.ball.draw(this.ctx, this.stageWidth, this.stageHeight, this.block);
     }
