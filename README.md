@@ -17,6 +17,9 @@
 |![bouncing](https://user-images.githubusercontent.com/29701385/108593136-54911080-73b5-11eb-9694-ac4963f1fd3e.gif)|
 |---|
 
+### Wave
+|![wave](https://user-images.githubusercontent.com/29701385/108618291-4f3cd000-7460-11eb-9c68-f52cba864a58.gif)|
+|---|
 
 ## 실행
 - 서버로 실행 시켜야 CORS에러 안생김
