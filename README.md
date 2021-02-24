@@ -21,6 +21,10 @@
 |![wave](https://user-images.githubusercontent.com/29701385/108618291-4f3cd000-7460-11eb-9c68-f52cba864a58.gif)|
 |---|
 
+### Gradient
+
+### ImageWave
+
 ## 실행
 - 서버로 실행 시켜야 CORS에러 안생김
 - 에러가 어디서 발생하는지 쉽게 알 수 있다.
