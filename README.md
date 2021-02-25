@@ -22,8 +22,13 @@
 |---|
 
 ### Gradient
+|![Gradient](https://user-images.githubusercontent.com/29701385/109170974-a1655480-77c4-11eb-9ce8-e307e206b5a1.gif)|
+|---|
 
 ### ImageWave
+|![ImageWave](https://user-images.githubusercontent.com/29701385/109170522-3451bf00-77c4-11eb-830b-0e985edc91b7.gif)|
+|---|
+
 
 ## 실행
 - 서버로 실행 시켜야 CORS에러 안생김

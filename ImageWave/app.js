@@ -1,5 +1,7 @@
 import { Ripple } from "./ripple.js";
-import { Dot } from "./dots.js";
+import { Dot } from "./dot.js";
+import { collide } from "./utils.js";
+
 class App {
     constructor() {
         this.canvas = document.createElement("canvas");
@@ -29,7 +31,7 @@ class App {
         };
 
         this.image = new Image();
-        this.image.src = "gogh1.jpg";
+        this.image.src = "img2.jpg";
         this.image.onload = () => {
             this.isLoaded = true;
             this.drawImage();
@@ -116,16 +118,64 @@ class App {
 
     drawDots() {
         this.dots = [];
+
+        this.columns = Math.ceil(this.stageWidth / this.pixelSize);
+        this.rows = Math.ceil(this.stageHeight / this.pixelSize);
+
+        for (let i = 0; i < this.rows; i++) {
+            const y = (i + 0.5) * this.pixelSize;
+            const pixelY = Math.max(Math.min(y, this.stageHeight), 0);
+
+            for (let j = 0; j < this.columns; j++) {
+                const x = (j + 0.5) * this.pixelSize;
+                const pixelX = Math.max(Math.min(x, this.stageWidth), 0);
+
+                const pixelIndex = (pixelX + pixelY * this.stageWidth) * 4;
+                const red = this.imgData.data[pixelIndex + 0];
+                const green = this.imgData.data[pixelIndex + 1];
+                const blue = this.imgData.data[pixelIndex + 2];
+
+                const dot = new Dot(
+                    x,
+                    y,
+                    this.radius,
+                    this.pixelSize,
+                    red,
+                    green,
+                    blue
+                );
+                this.dots.push(dot);
+            }
+        }
     }
 
     animate() {
         window.requestAnimationFrame(this.animate.bind(this));
 
         this.ripple.animate(this.ctx);
+
+        for (let i = 0; i < this.dots.length; i++) {
+            const dot = this.dots[i];
+            if (
+                collide(
+                    dot.x,
+                    dot.y,
+                    this.ripple.x,
+                    this.ripple.y,
+                    this.ripple.radius
+                )
+            ) {
+                dot.animate(this.ctx);
+            }
+        }
     }
 
     onClick(e) {
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+
+        for (let i = 0; i < this.dots.length; i++) {
+            this.dots[i].reset();
+        }
 
         this.ctx.drawImage(
             this.image,
@@ -138,6 +188,7 @@ class App {
             this.imgPos.width,
             this.imgPos.height
         );
+
         this.ripple.start(e.offsetX, e.offsetY);
     }
 }

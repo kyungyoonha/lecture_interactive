@@ -18,7 +18,7 @@ class App {
         // 모바일일 때는 그 크기를 2배로 키워준다.
         this.pixelRatio = window.devicePixelRatio > 1 ? 2 : 1;
 
-        this.totalParticles = 1;
+        this.totalParticles = 15;
         this.particles = [];
         this.maxRadius = 900;
         this.minRadius = 400;
