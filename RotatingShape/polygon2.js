@@ -23,7 +23,8 @@ export class Polygon2 {
         for (let i = 0; i < this.sides; i++) {
             const x = this.radius * Math.cos(angle * i);
             const y = this.radius * Math.sin(angle * i);
-
+            // 라인이 아니라 각각을 원으로 그려줬음
+            // 0도부터 PI2 (360)까지
             ctx.beginPath();
             ctx.arc(x, y, 30, 0, PI2, false);
             ctx.fill();

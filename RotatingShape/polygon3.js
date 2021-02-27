@@ -26,6 +26,8 @@ export class Polygon3 {
         this.rotate = 0;
     }
 
+    // ctx.save()가 여러번 되는 경우
+    // store()은 기존의 스타일을 불러온다
     animate(ctx, moveX) {
         ctx.save();
 
@@ -45,6 +47,14 @@ export class Polygon3 {
             ctx.fillStyle = COLORS[i];
             ctx.translate(x, y);
             ctx.rotate((((360 / this.sides) * i + 45) * Math.PI) / 180);
+            // 8각형 인경우
+            // 0 -> 1/4 파이: 반시계로 45도
+            // 1 -> 1/2 파이: 반시계로 90도 (사각형이므로 같은 모양임)
+            // 2 -> 3/4 파이: 반시계로 135도
+            // 3 -> 4/4 파이: 반시계로 180도
+            // ...
+            // 전부 센터로부터 90도를 유지한다.
+
             ctx.beginPath();
 
             for (let j = 0; j < 4; j++) {
